@@ -6,7 +6,7 @@ import feign.RequestLine
 
 interface JudgeDClient {
 
-    @RequestLine("POST /contracts/{serviceName}/{serviceVersion}")
+    @RequestLine("POST contracts/services/{serviceName}/versions/{serviceVersion}")
     @Headers("Content-Type: application/json")
     fun publish(
         @Param("serviceName") serviceName: String,
