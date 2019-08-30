@@ -8,8 +8,8 @@ plugins {
     java
 
     id("pl.allegro.tech.build.axion-release") version ("1.10.2")
-    id("io.codearte.nexus-staging") version "0.21.0"
-    id("de.marcphilipp.nexus-publish") version "0.3.1"
+    id("io.codearte.nexus-staging") version "0.20.0"
+    id("de.marcphilipp.nexus-publish") version "0.2.0"
 }
 
 scmVersion {
