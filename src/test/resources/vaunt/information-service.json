@@ -1,0 +1,83 @@
+{
+  "name": "information-service",
+  "capabilities": {
+    "contracts": [
+      {
+        "destinationType": "QUEUE",
+        "destinationName": "request_for_information_queue",
+        "message": {
+          "type": "object",
+          "id": "RequestMessage",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "destinationType": "TOPIC",
+        "destinationName": "something_changed_topic",
+        "message": {
+          "type": "object",
+          "id": "ChangedEvent",
+          "properties": {
+            "timestamp": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "expectations": {
+    "providerNameToContracts": {
+      "audit-service": [
+        {
+          "destinationType": "QUEUE",
+          "destinationName": "audit_queue",
+          "message": {
+            "type": "object",
+            "id": "AuditMessage",
+            "properties": {
+              "payload": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "remote-client": [
+        {
+          "destinationType": "QUEUE",
+          "destinationName": "reject_information_queue",
+          "message": {
+            "type": "object",
+            "id": "RejectMessage",
+            "properties": {
+              "reason": {
+                "type": "string"
+              },
+              "code": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        {
+          "destinationType": "QUEUE",
+          "destinationName": "accept_information_queue",
+          "message": {
+            "type": "object",
+            "id": "AcceptMessage",
+            "properties": {
+              "id": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -6,10 +6,11 @@ plugins {
     signing
     idea
     java
+    groovy
 
     id("pl.allegro.tech.build.axion-release") version ("1.10.2")
-    id("io.codearte.nexus-staging") version "0.20.0"
-    id("de.marcphilipp.nexus-publish") version "0.2.0"
+    id("io.codearte.nexus-staging") version ("0.20.0")
+    id("de.marcphilipp.nexus-publish") version ("0.2.0")
 }
 
 scmVersion {
@@ -33,6 +34,9 @@ dependencies {
     implementation("com.hltech:vaunt-core:1.0.24")
     implementation("io.github.openfeign:feign-core:9.7.0")
     implementation("io.github.openfeign:feign-jackson:9.7.0")
+
+    testImplementation("org.spockframework:spock-core:1.2-groovy-2.5")
+    testImplementation("com.github.tomakehurst:wiremock:2.13.0")
 }
 
 tasks.withType<KotlinCompile> {
