@@ -14,14 +14,14 @@ class Publisher {
 
     fun publish(properties: PublisherProperties) {
         if (properties.capabilities.isEmpty() && properties.expectations.isEmpty()) {
-            println("Not contracts available to publish")
+            println("Did not found any contracts for publish.")
             return
         }
 
         val capabilities = getCapabilitiesFrom(properties)
         val expectations = getExpectationsFrom(properties)
         judgeD.publishContracts(properties, capabilities, expectations)
-        println("Contracts successfully published")
+        println("Contracts successfully published.")
     }
 
     private fun getCapabilitiesFrom(properties: PublisherProperties): List<Capabilities> =
